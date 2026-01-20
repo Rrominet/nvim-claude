@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import os
+import subprocess
+import shutil
+
+subprocess.run(["git", "clone", "https://github.com/Rrominet/py-utils"])
+os.chdir("py-utils")
+subprocess.run(["chmod", "+x", "./"])
+subprocess.run(["./install"])
+
+os.makedirs(os.path.expanduser("~") + "/.config/nvim/rplugin/python3", exist_ok=True)
+
+subprocess.run(["git", "clone", "https://github.com/Rrominet/nvim-claude.git"])
+shutil.copy("nvim-coder/coder.py", os.path.expanduser("~") + "/.config/nvim/rplugin/python3/coder.py")
+shutil.copytree("nvim-coder/coder-data", os.path.expanduser("~") + "/.config/nvim/rplugin/python3/coder-data")
+shutil.rmtree("nvim-coder")
+
+os.chdir(os.path.expanduser("~") + "/.config/nvim/rplugin/python3")
+subprocess.run(["git", "clone", "https://github.com/anthropics/anthropic-sdk-python"])
+
+from ml import packages
+packages.install(["python3-pydantic", "python3-httpx", "python3-docstring-parser"])
+
+print ("Coder installed in : " + os.path.expanduser("~") + "/.config/nvim/rplugin/python3/")

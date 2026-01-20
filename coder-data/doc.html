@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Doc</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<h1 id="nvim-coder">nvim-coder</h1>
+<h2 id="list-of-all-commands">List of all commands</h2>
+<ul>
+<li>AIDoc</li>
+<li>AIImplement</li>
+<li>AIDocument</li>
+<li>AIDocumentFile</li>
+<li>AISuggestFromCurrentFile</li>
+<li>AISuggestFromCurrentLine</li>
+<li>AISuggestFromCurrentProject</li>
+<li>AIImplementSuggestions</li>
+<li>AIAsk</li>
+<li>AIExec</li>
+<li>AIExecAll</li>
+<li>AIRespond</li>
+<li>AIRespondAll</li>
+<li>AIConfig</li>
+<li>AIDebug</li>
+<li>AIReload</li>
+</ul>
+<h3 id="aidoc">AIDoc</h3>
+<p>Open this document.</p>
+<h3 id="aiimplement">AIImplement</h3>
+<p>Will implement the content of the function that is written on the
+line under the cursor.</p>
+<h3 id="aidocument">AIDocument</h3>
+<p>Will document the function that is written on the line under the
+cursor.<br />
+The documentation will be add as comments above the function
+definition.</p>
+<h3 id="aidocumentfile">AIDocumentFile</h3>
+<p>Exactly like AiDocument but for the entire file, not only the
+function under the cursor.</p>
+<h3 id="aisuggestfromcurrentfile">AISuggestFromCurrentFile</h3>
+<p>Will ask suggestion for current file code.<br />
+The suggestions will be written in <code>/tmp/coder-response</code>.</p>
+<h3 id="aisuggestfromcurrentline">AISuggestFromCurrentLine</h3>
+<p>Will ask suggestion for the function written under the cursor.<br />
+The suggestions will be written in <code>/tmp/coder-response</code>.</p>
+<h3 id="aisuggestfromcurrentproject">AISuggestFromCurrentProject</h3>
+<p>Will ask suggestion for all opened buffers in nvim.<br />
+(careful here, if you have a lot of buffers, the context sended to
+claude could be quite long - and so quite expensive)<br />
+The suggestions will be written in <code>/tmp/coder-response</code>.</p>
+<h3 id="aiimplementsuggestions">AIImplementSuggestions</h3>
+<p>Will implement the suggestions written in
+<code>/tmp/coder-response</code></p>
+<h3 id="aiask">AIAsk</h3>
+<p>Open simply the buffer <code>/tmp/ask-coder</code> where you can ask
+anything to claude.</p>
+<h3 id="aiexec">AIExec</h3>
+<p>Execute what is written in <code>/tmp/ask-coder</code>.<br />
+Claude here will have only the current file as context.</p>
+<p>(careful to not have the <code>/tmp/ask-coder</code> buffer as
+current file, otherwise the context will make no sense)</p>
+<h3 id="aiexecall">AIExecAll</h3>
+<p>Execute what is written in <code>/tmp/ask-coder</code>.<br />
+Claude here will have all the buffers as context.</p>
+<h3 id="airespond">AIRespond</h3>
+<p>Send to Claude what is written in <code>/tmp/ask-coder</code>.<br />
+Claude will respond in the buffer <code>/tmp/coder-response</code></p>
+<p>Claude will have as context the current file.</p>
+<h3 id="airespondall">AIRespondAll</h3>
+<p>Same as <code>AIRespond</code> but with all the buffers as
+context</p>
+<h3 id="aiconfig">AIConfig</h3>
+<p>Open the file to config the plugin (like the api-keys)</p>
+<h3 id="aidebug">AIDebug</h3>
+<p>Open the python file that claude has executed last.<br />
+Useful if you have an error in the python execution once Claude has been
+called.</p>
+<h3 id="aireload">AIReload</h3>
+<p>Reload the plugin from the config file.<br />
+No need to rebbot <code>nvim</code>.</p>
+</body>
+</html>
